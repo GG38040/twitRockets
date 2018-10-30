@@ -15,10 +15,12 @@ var rw = 200;//
 var rh = 10;//
 
 function setup() {
-    createCanvas(600, 600);
+    var canvas = createCanvas(windowWidth/2, windowHeight);
+    canvas.parent('sketch-holder');
     twitPopulation = new Population();
     target = createVector(width/2, 50);
 }
+
 
 function draw() {
     background(0);
@@ -31,8 +33,8 @@ function draw() {
         count = 0;
     }
 
-    fill(255);
-    rect(rx, ry, rw, rh);
+    // fill(255);
+    // rect(rx, ry, rw, rh);
 
     ellipse(target.x, target.y, 16, 16);
 }
@@ -169,9 +171,9 @@ function Rocket(dna) {
             this.completed = true;
             this.pos = target.copy();
         }
-        if (this.pos.x > rx && this.pos.x < rx + rw && this.pos.y > ry && this.pos.y < ry +rh) {
-            this.crashed = true;
-        }
+        // if (this.pos.x > rx && this.pos.x < rx + rw && this.pos.y > ry && this.pos.y < ry +rh) {
+        //     this.crashed = true;
+        // }
         if(this.pos.x > width || this.pos.x < 0) {
             this.crashed = true;
         }
@@ -191,11 +193,12 @@ function Rocket(dna) {
     this.show = function() {
         push();
         noStroke();
-        fill(100);
+        fill(0, 172, 237);
         translate(this.pos.x, this.pos.y);
         rotate(this.vel.heading());
         rectMode(CENTER);        
-        rect(0, 0, 30, 10); //object structure 
+        // rect(0, 0, 30, 10); //object structure 
+        ellipse(0, 0, 25, 25);
         pop();
     }
 

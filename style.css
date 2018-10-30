@@ -1,0 +1,16 @@
+html, body {
+    height: 95%;
+}
+
+body {
+    margin: 15;
+    margin-top: 25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align-last: center;
+    margin: 10;
+}
